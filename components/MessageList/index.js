@@ -1,13 +1,13 @@
-import { Button, List } from "antd";
+import { List } from "antd";
+import { useState } from "react";
+import styles from "../../styles/Playground.module.css";
+import DeleteBtn from "../DeleteBtn";
 import SignBtn from "../SignBtn";
 import VerifyBtn from "../VerifyBtn";
-import styles from "../../styles/Playground.module.css";
 
 const MessageList = ({ list = [], setList = () => {} }) => {
-  const handleDelete = (message) => {
-    console.log(message);
-    setList(list.filter((item) => message !== item));
-  };
+  const [signature, setSignature] = useState(null);
+
   return (
     <List
       className={styles.list}
@@ -16,16 +16,9 @@ const MessageList = ({ list = [], setList = () => {} }) => {
       renderItem={(message) => (
         <List.Item
           actions={[
-            <SignBtn msg={message} key={message + "1"} />,
-            <VerifyBtn msg={message} key={message + "2"} />,
-            <Button
-              onClick={(message) => handleDelete(message)}
-              key={message + "33"}
-              size="small"
-              type="danger"
-            >
-              Delete
-            </Button>,
+            <SignBtn {...{ message, setSignature }} key={message + "1"} />,
+            <VerifyBtn {...{ message, signature }} key={message + "2"} />,
+            <DeleteBtn {...{ setList, message, list }} key={message + "3"} />,
           ]}
         >
           {message}

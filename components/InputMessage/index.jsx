@@ -17,7 +17,6 @@ function InputMessage({ list = [], setList = () => {} }) {
     } else {
       msg.warn("message can not be empty!")
     }
-
   };
 
   return (
@@ -29,6 +28,7 @@ function InputMessage({ list = [], setList = () => {} }) {
         allowClear
         onChange={onChange}
         onPressEnter={submit}
+        placeholder="Please enter a message to sign"
       />
       <Button type="primary" onClick={submit} className={styles.submit}>
         Submit
