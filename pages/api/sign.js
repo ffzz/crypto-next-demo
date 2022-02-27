@@ -10,7 +10,6 @@ export default async function handler(req, res) {
         const { privateKey } = await readLocalKeys();
         const signature = await signMessage({ message, privateKey });
         const sig = Buffer.from(signature).toString("base64");
-        console.log({ signature: sig });
 
         return res
           .status(200)

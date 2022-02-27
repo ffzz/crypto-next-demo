@@ -3,7 +3,7 @@ import { useVerifySignature } from "../../hooks/useVerifySignature";
 
 const VerifyBtn = ({ message, signature }) => {
   const verifySignature = useVerifySignature({
-    signature: window.atob(signature),
+    signature,
     message,
   });
 

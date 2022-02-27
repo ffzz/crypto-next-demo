@@ -2,6 +2,11 @@ import { base64ToArrayBuffer } from "../../lib/importKeys";
 import { readLocalKeys } from "../../lib/readLocalKeys";
 import { verifySignature } from "../../lib/verifySignature";
 
+/**
+ * * backend api: verify signature
+ * * POST: /api/verify
+ * * body: {signature, message}
+ */
 export default async function handler(req, res) {
   const { message, signature } = req.body;
   if (!!message && !!signature) {

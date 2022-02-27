@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import GetStartedBtn from "../components/GetStartedBtn";
 import styles from "../styles/Home.module.css";
-import "antd/dist/antd.css";
 
 export default function Home() {
   return (
@@ -15,16 +14,12 @@ export default function Home() {
 
       <main className={styles.main}>
         <h3 className={styles.title}>Welcome to Crypto Playground!</h3>
-
         <p className={styles.description}>
           Click the Button below to get started!
         </p>
 
         {/* Click the button to generate a key pair */}
         <GetStartedBtn />
-        {/* Input a message for signature */}
-        {/* sign the message you typed in */}
-        {/* verify the signature */}
       </main>
       <footer className={styles.footer}>
         <a
