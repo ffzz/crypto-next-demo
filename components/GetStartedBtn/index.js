@@ -1,9 +1,15 @@
-import { Button, Tooltip } from "antd";
+import { Button, notification, Tooltip } from "antd";
 import Link from "next/link";
 
 const GetStartedBtn = () => {
-  const handleStarted = () => {
-    fetch("/api/started");
+  const handleStarted = async () => {
+    const res = await fetch("/api/started");
+    const { code, msg } = await res.json();
+    if (code === 200) {
+      notification.success({
+        message: msg,
+      });
+    }
   };
   return (
     <Link href="./playground" passHref>

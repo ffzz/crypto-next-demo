@@ -18,7 +18,6 @@
 /build
 
 # misc
-/keys
 .DS_Store
 *.pem
 

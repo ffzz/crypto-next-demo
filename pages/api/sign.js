@@ -3,7 +3,6 @@ import { signMessage } from "../../lib/signMessage";
 
 export default async function handler(req, res) {
   const { message } = req.body;
-  console.log("sign api", message);
   if (req.method == "POST") {
     if (!!message) {
       try {
