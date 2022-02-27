@@ -13,12 +13,12 @@ const MessageList = ({ list = [], setList = () => {} }) => {
       className={styles.list}
       itemLayout="horizontal"
       dataSource={list}
-      renderItem={(message) => (
+      renderItem={(message, index) => (
         <List.Item
           actions={[
             <SignBtn {...{ message, setSignature }} key={message + "1"} />,
             <VerifyBtn {...{ message, signature }} key={message + "2"} />,
-            <DeleteBtn {...{ setList, message, list }} key={message + "3"} />,
+            <DeleteBtn {...{ setList, index, list }} key={message + "3"} />,
           ]}
         >
           {message}
