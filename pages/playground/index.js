@@ -2,9 +2,12 @@ import { Card } from "antd";
 import { useState } from "react";
 import InputMessage from "../../components/InputMessage";
 import MessageList from "../../components/MessageList";
-// import { readLocalKeys } from "../../lib/readLocalKeys";
+import { readLocalKeys } from "../../lib/readLocalKeys";
 import styles from "../../styles/Playground.module.css";
 
+/**
+ * * Page: playground
+ */
 const Playground = ({ publicKey = "", privateKey = "" }) => {
   const [list, setList] = useState([]);
   return (
@@ -26,11 +29,11 @@ const Playground = ({ publicKey = "", privateKey = "" }) => {
 export default Playground;
 
 export const getServerSideProps = async () => {
-  // const { publicKey = "", privateKey = "" } = await readLocalKeys();
+  const { publicKey = "", privateKey = "" } = await readLocalKeys();
   return {
     props: {
-      publicKey: process.env.PUBLIC_KEY || "",
-      privateKey: process.env.PRIVATE_KEY || "",
+      publicKey,
+      privateKey,
     },
   };
 };

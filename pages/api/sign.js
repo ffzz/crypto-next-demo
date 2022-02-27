@@ -1,6 +1,9 @@
 import { readLocalKeys } from "../../lib/readLocalKeys";
 import { signMessage } from "../../lib/signMessage";
 
+/**
+ * * POST /api/sign { message:string }
+ */
 export default async function handler(req, res) {
   const { message } = req.body;
   if (req.method == "POST") {

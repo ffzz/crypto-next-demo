@@ -1,4 +1,4 @@
-import NextDocument, { Html, Head, Main, NextScript } from "next/document";
+import NextDocument, { Head, Html, Main, NextScript } from "next/document";
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx) {
@@ -8,7 +8,8 @@ export default class MyDocument extends NextDocument {
   render() {
     const meta = {
       title: "crypt playground",
-      description: "Clone and deploy your own Next.js portfolio in minutes.",
+      description:
+        "This is a demo for signing and verifying with the asymmetric encryption algorithm prime256v1 (p-256).",
     };
 
     return (
