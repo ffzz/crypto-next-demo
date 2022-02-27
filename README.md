@@ -23,7 +23,6 @@ Then, have fun~
 ```
 ├── .husky // formate code and commit comments with eslit and commitlint
 ├── components // common components
-├── hooks // frontend hooks to request data
 ├── keys // generated keys in format of pem
 ├── pages //  pages directory. The file path is the page path.
 ├── lib // functions
