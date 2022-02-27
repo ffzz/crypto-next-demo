@@ -1,16 +1,17 @@
 import { Button, notification, Tooltip } from "antd";
 import Link from "next/link";
+import { myFetch } from "../../lib/myFetch";
 
 const GetStartedBtn = () => {
   const handleStarted = async () => {
-    const res = await fetch("/api/started");
-    const { code, msg } = await res.json();
-    if (code === 200) {
+    const data = await myFetch("/api/started", null, { method: "GET" });
+    if (!data) {
       notification.success({
-        message: msg,
+        message: "Key pair generated successfully!",
       });
     }
   };
+
   return (
     <Link href="./playground" passHref>
       <Tooltip title="Click to generate key pair">

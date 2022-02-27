@@ -4,18 +4,18 @@ import styles from "../../styles/Input.module.css";
 
 function InputMessage({ list = [], setList = () => {} }) {
   const [message, setMessage] = useState("");
-  const inputRef = useRef('')
+  const inputRef = useRef("");
   const onChange = (e) => {
     setMessage(e.target.value);
   };
 
   const submit = (e) => {
-    if(!!message ) {
+    if (!!message) {
       setList([...list, message]);
-      setMessage('')
-      inputRef.current.setValue('')
+      setMessage("");
+      inputRef.current.setValue("");
     } else {
-      msg.warn("message can not be empty!")
+      msg.warn("message can not be empty!");
     }
   };
 

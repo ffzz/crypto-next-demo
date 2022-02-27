@@ -17,6 +17,10 @@ export default async function handler(req, res) {
       });
     } catch (error) {
       console.error(error);
+      return res.status(500).json({
+        code: 500,
+        msg: `Key pair generate failed! Internal server error! Error: ${error}`,
+      });
     }
   }
 }

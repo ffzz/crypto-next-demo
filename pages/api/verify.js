@@ -12,7 +12,6 @@ export default async function handler(req, res) {
   if (!!message && !!signature) {
     try {
       const sig = base64ToArrayBuffer(signature);
-      console.log({ buffer: sig });
       const { publicKey } = await readLocalKeys();
       const verified = await verifySignature({
         message,
@@ -22,11 +21,11 @@ export default async function handler(req, res) {
       if (verified) {
         return res
           .status(200)
-          .json({ code: 200, msg: "verify successfully!", verified });
+          .json({ code: 200, msg: "verify successfully!", data: { verified } });
       } else {
         return res
           .status(400)
-          .json({ code: 400, msg: "verify failed!", verified });
+          .json({ code: 400, msg: "verify failed!", data: { verified } });
       }
     } catch (error) {
       console.error(error);

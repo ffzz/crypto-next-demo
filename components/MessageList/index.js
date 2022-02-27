@@ -1,9 +1,7 @@
 import { List } from "antd";
 import { useState } from "react";
 import styles from "../../styles/Playground.module.css";
-import DeleteBtn from "../DeleteBtn";
-import SignBtn from "../SignBtn";
-import VerifyBtn from "../VerifyBtn";
+import { DeleteBtn, SignBtn, VerifyBtn } from "../Btns";
 
 const MessageList = ({ list = [], setList = () => {} }) => {
   const [signature, setSignature] = useState(null);

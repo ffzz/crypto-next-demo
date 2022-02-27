@@ -13,16 +13,19 @@ export default async function handler(req, res) {
         const signature = await signMessage({ message, privateKey });
         const sig = Buffer.from(signature).toString("base64");
 
-        return res
-          .status(200)
-          .json({ code: 200, msg: "sign successfully!", signature: sig });
+        return res.status(200).json({
+          code: 200,
+          msg: "sign successfully!",
+          data: { signature: sig },
+        });
       } catch (error) {
         console.error(error);
       }
     } else {
-      return res
-        .status(400)
-        .json({ code: 400, msg: "The message is required!", message });
+      return res.status(400).json({
+        code: 400,
+        msg: `The message is required! Received: ${message}`,
+      });
     }
   }
 }
